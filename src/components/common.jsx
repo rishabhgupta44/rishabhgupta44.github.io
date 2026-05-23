@@ -16,10 +16,10 @@ export function Section({ id, eyebrow, title, children, className = "" }) {
   );
 }
 
-export function ButtonLink({ href, children, variant = "primary" }) {
+export function ButtonLink({ href, children, variant = "primary", download = false }) {
   const external = typeof href === "string" && /^https?:\/\//.test(href);
   return (
-    <a href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} className={cx("inline-flex items-center justify-center border px-4 py-2 text-sm font-medium transition", variant === "primary" ? "border-red-900 bg-red-900 text-white hover:bg-red-800" : "border-red-900/25 bg-white text-slate-800 hover:border-red-800 hover:text-red-900")}>{children}</a>
+    <a href={href} download={download ? "" : undefined} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} className={cx("inline-flex items-center justify-center border px-4 py-2 text-sm font-medium transition", variant === "primary" ? "border-red-900 bg-red-900 text-white hover:bg-red-800" : "border-red-900/25 bg-white text-slate-800 hover:border-red-800 hover:text-red-900")}>{children}</a>
   );
 }
 

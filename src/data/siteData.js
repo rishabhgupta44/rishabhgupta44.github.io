@@ -11,7 +11,7 @@ export const PROFILE = {
   // Put your photo at `public/profile1.jpg` and it will be displayed.
   photoUrl: asset("profile1.jpg"),
   photoFallbackUrl: asset("profile1.jpg"),
-  cvUrl: "#",
+  cvUrl: asset("Rishabh_Gupta_CV.pdf"),
   githubUrl: "https://github.com/rishabhgupta44",
   linkedinUrl: "https://www.linkedin.com/in/rishabhgupta44/",
   inspireUrl: "https://inspirehep.net/authors/3131955?ui-citation-summary=true",
