@@ -2,26 +2,48 @@ const asset = (fileName) => `${import.meta.env.BASE_URL}${fileName}`;
 
 export const PROFILE = {
   name: "Rishabh Gupta",
-  title: "High Energy Physics",
-  institute: "M.Sc. Physics, Indian Institute of Technology Indore",
+  title: "Doctoral Researcher at ETH Zürich",
+  network: "Marie Skłodowska-Curie Doctoral Network COMBINE",
+  institute: "Experimental and Computational Multiphase Flow Laboratory (ECMF), ETH Zürich",
+  secondaryAffiliation: "Laboratory for Reactor Physics and Thermal-Hydraulics (LRT), Paul Scherrer Institut (PSI)",
   email: "rishabh200207@gmail.com",
-  location: "India",
-  // The site looks for an image in the `public/` folder.
-  // Recommended filename: `public/profile1.jpg`.
-  // Put your photo at `public/profile1.jpg` and it will be displayed.
-  photoUrl: asset("profile1.jpg"),
+  location: "Zürich, Switzerland",
+  photoUrl: asset("profile.jpg"),
   photoFallbackUrl: asset("profile1.jpg"),
   cvUrl: asset("Rishabh_Gupta_CV.pdf"),
   githubUrl: "https://github.com/rishabhgupta44",
   linkedinUrl: "https://www.linkedin.com/in/rishabhgupta44/",
-  inspireUrl: "https://inspirehep.net/authors/3131955?ui-citation-summary=true",
+  inspireUrl: "https://inspirehep.net/authors/3131955",
   tagline:
-    "I am interested in high energy physics problems that probe the fundamental structure of nature, and I also enjoy building frameworks that make scientific workflows easier to develop, reproduce, and extend.",
+    "I am a doctoral researcher at ETH Zürich, working on the experimental investigation of flow-induced vibrations and fluid–structure interactions within the Marie Skłodowska-Curie COMBINE Doctoral Network. My previous research spans high-energy physics, detector simulation, scientific software development, and physics-informed machine learning. I am particularly interested in developing rigorous experimental and computational approaches to understanding complex physical systems.",
 };
 
-export const researchTags = ["All", "HEP Software", "Machine Learning", "Detector R&D", "Simulation"];
+export const doctoralResearch = {
+  title: "Flow-induced vibrations in rods and rod bundles",
+  description: "My doctoral research at ETH Zürich, within the Marie Skłodowska-Curie COMBINE Doctoral Network, focuses on investigating flow-induced vibrations in rods and rod bundles through high-resolution experimental measurements. The project aims to characterize vibration dynamics using ensemble-averaged, high-resolution gamma tomography, contributing to improved understanding of fluid–structure interactions in engineering systems.",
+  keywords: ["Fluid–structure interaction", "Flow-induced vibration", "Rod and rod-bundle dynamics", "Experimental measurement techniques", "High-resolution gamma tomography", "Computational physics", "Multiphase flows", "Scientific computing"],
+  supervision: "Prof. Dr. Annalisa Manera and Dr. Victor Petrov",
+  doctoralCandidate: "DC16",
+  publicResearchUrl: "https://www.jobs.ethz.ch/job/view/JOPG_ethz_AY3hccIricAb6VIQkw?mw_source=ethgethired",
+};
+
+export const researchTags = ["All", "Current research", "HEP Software", "Machine Learning", "Detector R&D", "Simulation"];
 
 export const projects = [
+  {
+    title: "Flow-induced vibrations in rods and rod bundles",
+    subtitle: "Doctoral research at ETH Zürich · MSCA COMBINE",
+    tag: "Current research",
+    status: "DC16 · 2026–Present · ECMF, ETH Zürich / LRT, PSI",
+    publicUrl: doctoralResearch.publicResearchUrl,
+    summary: doctoralResearch.description,
+    highlights: [
+      "High-resolution experimental measurements of vibration dynamics",
+      "Ensemble-averaged, high-resolution gamma tomography",
+      "Fluid–structure interaction in multiphase engineering systems",
+      "Research supervised by Prof. Dr. Annalisa Manera and Dr. Victor Petrov",
+    ],
+  },
   {
     title: "MAGE-HEP",
     subtitle: "Monte Carlo Analysis and Graphical Environment for High-Energy Physics",
@@ -87,60 +109,78 @@ export const projects = [
 ];
 
 export const publications = [
-  { title: "THGEM detector optimization study", venue: "Journal of Instrumentation, 2025", type: "Published", link: "#" },
+  {
+    title: "Study of charge dynamics in THGEM-based detectors — a numerical approach",
+    authors: "Purba Bhattacharya, Rishabh Gupta, Shounok Guha, Prasant Kumar Rout, Jaydeep Datta, Nayana Majumdar, Supratik Mukhopadhyay",
+    venue: "Journal of Instrumentation 20(4), C04019 (2025)",
+    type: "Journal article",
+    link: "https://doi.org/10.1088/1748-0221/20/04/C04019",
+    linkLabel: "View publication",
+  },
   {
     title: "Inferring identified hadron production in pp collisions with physics-informed machine learning at the LHC",
     venue: "arXiv:2605.09022",
     type: "Preprint",
     link: "https://arxiv.org/abs/2605.09022",
+    linkLabel: "View on arXiv",
   },
   {
     title: "MAGE-HEP: Monte Carlo Analysis and Graphical Environment for High-Energy Physics",
     venue: "arXiv:2605.17871",
     type: "Preprint",
     link: "https://arxiv.org/abs/2605.17871",
+    linkLabel: "View on arXiv",
   },
 ];
 
 export const skills = ["PYTHIA8", "ROOT", "C++", "Qt", "Python", "PyTorch", "Optuna TPE", "COMSOL", "GEANT4", "Detector simulation", "HEP analysis workflows", "Physics guided ML", "Staged PINN / StageDNN workflow"];
 
 export const timeline = [
-  { year: "Now", title: "M.Sc. Physics, IIT Indore", text: "Working on high energy physics, event generator studies, ROOT workflows, and physics guided machine learning for particle spectra." },
-  { year: "Present", title: "Independent research with Saha Institute of Nuclear Physics", text: "Working on machine-learning applications in muon tomography, with emphasis on reconstruction from detector-level information." },
+  { year: "2026–Present", title: "Doctoral Researcher, ETH Zürich", text: "MSCA COMBINE doctoral research on flow-induced vibrations in rods and rod bundles using ensemble-averaged, high-resolution gamma tomography. Affiliated with ECMF at ETH Zürich and connected with LRT at PSI." },
+  { year: "2024–2026", title: "M.Sc. Physics, IIT Indore", text: "High-energy physics, PYTHIA8 Monte Carlo event generation, ROOT-based data analysis, particle spectra and correlations, scientific software, and physics-informed machine learning." },
+  { year: "Earlier", title: "Research with Saha Institute of Nuclear Physics", text: "Work related to muon tomography, GEANT4 detector simulation, reconstruction concepts, CNN-based object detection, and three-dimensional reconstruction methods." },
   { year: "2025", title: "JINST detector paper", text: "THGEM detector simulation and optimization work published in Journal of Instrumentation." },
 ];
 
 export const archiveGroups = [
   {
     title: "Current projects",
-    subtitle: "Research work, active manuscripts, and technical projects that define my present direction.",
+    subtitle: "My current doctoral research as DC16 in the MSCA COMBINE Doctoral Network.",
+    items: [
+      {
+        title: "Flow-induced vibrations in rods and rod bundles",
+        meta: "DC16 · 2026–Present",
+        text: doctoralResearch.description,
+        publicUrl: doctoralResearch.publicResearchUrl,
+        publicLabel: "Read the public DC16 project description",
+        details: ["Doctoral project in the Marie Skłodowska-Curie COMBINE Doctoral Network.", "Investigates vibrating rods and rod bundles using ensemble-averaged, high-resolution gamma tomography.", "Affiliated with ECMF at ETH Zürich and connected with LRT at PSI.", "Supervised by Prof. Dr. Annalisa Manera and Dr. Victor Petrov."],
+      },
+    ],
+  },
+  {
+    title: "Past projects",
+    subtitle: "Previous research and technical work, retained as part of my academic trajectory.",
     items: [
       {
         title: "MAGE-HEP",
-        meta: "arXiv:2605.17871",
+        meta: "arXiv:2605.17871 · Past project",
         text: "MAGE-HEP: Monte Carlo Analysis and Graphical Environment for High-Energy Physics. A reproducibility-focused environment for PYTHIA8 and ROOT workflows using .mgp project bundles and .mcx context files.",
         paperUrl: "https://arxiv.org/abs/2605.17871",
         details: ["Built around reusable project bundles, context files, generated analysis code, output rules, and provenance.", "The project is meant to make generator-based studies easier to inspect, rerun, and extend.", "Images to add later: GUI screenshots, node graph, project folder structure, and ROOT output preview."],
       },
       {
         title: "Inferring identified hadron production in pp collisions with physics-informed machine learning at the LHC",
-        meta: "arXiv:2605.09022",
+        meta: "arXiv:2605.09022 · Past project",
         text: "Physics-informed learning for identified hadron spectra across pseudorapidity and multiplicity regions.",
         paperUrl: "https://arxiv.org/abs/2605.09022",
         details: ["Uses PYTHIA8 and ROOT spectra processed through the MAGE pipeline.", "The model studies trained, interpolation, and extrapolation pseudorapidity regions.", "Images to add later: spectra comparison, staged optimisation diagram, particle-ratio plots, and freeze-out validation plots."],
       },
       {
         title: "Muon tomography reconstruction",
-        meta: "Research internship project",
+        meta: "Research internship project · Past project",
         text: "Detector simulation and reconstruction ideas involving GEANT4, CNN methods, and 3D reconstruction concepts.",
         details: ["Worked with simulation and reconstruction ideas for muon tomography applications.", "Explored detector response, object detection, and 3D reconstruction concepts from incomplete detector information.", "Images to add later: detector setup diagrams, reconstruction pipeline, and example visual outputs."],
       },
-    ],
-  },
-  {
-    title: "Old projects",
-    subtitle: "Earlier technical work that shows how my interest in large systems, physics, and engineering developed over time.",
-    items: [
       {
         title: "THGEM detector simulation",
         meta: "B.Sc. dissertation project, 2024",
