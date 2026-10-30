@@ -6,10 +6,17 @@ import NotesPage from "./pages/NotesPage.jsx";
 import { runSelfTests } from "./tests/selfTests.js";
 
 export default function App() {
-  const [activePage, setActivePage] = useState("home");
+  const initialPage = window.location.pathname.endsWith("/archive") ? "archive" : window.location.pathname.endsWith("/notes") ? "notes" : "home";
+  const [activePage, setActivePage] = useState(initialPage);
 
   useEffect(() => {
     if (import.meta.env.DEV) runSelfTests();
+  }, []);
+
+  useEffect(() => {
+    const onPopState = () => setActivePage(window.location.pathname.endsWith("/archive") ? "archive" : window.location.pathname.endsWith("/notes") ? "notes" : "home");
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
   return (
