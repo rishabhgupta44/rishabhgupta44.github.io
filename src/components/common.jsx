@@ -19,7 +19,7 @@ export function Section({ id, eyebrow, title, children, className = "" }) {
 export function ButtonLink({ href, children, variant = "primary", download = false }) {
   const external = typeof href === "string" && /^https?:\/\//.test(href);
   return (
-    <a href={href} download={download ? "" : undefined} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} className={cx("inline-flex items-center justify-center border px-4 py-2 text-sm font-medium transition", variant === "primary" ? "border-red-900 bg-red-900 text-white hover:bg-red-800" : "border-red-900/25 bg-white text-slate-800 hover:border-red-800 hover:text-red-900")}>{children}</a>
+    <a href={href} download={download ? "" : undefined} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} className={cx("inline-flex items-center justify-center border px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-800", variant === "primary" ? "border-red-900 bg-red-900 text-white hover:bg-red-800" : "border-red-900/25 bg-white text-slate-800 hover:border-red-800 hover:text-red-900")}>{children}</a>
   );
 }
 
@@ -55,7 +55,7 @@ export function CopyEmailButton() {
 }
 
 export function ProfilePhoto() {
-  const photoSources = [PROFILE.photoUrl, PROFILE.photoFallbackUrl, "./profile1.jpg", "/rishabh-gupta.jpg", "./rishabh-gupta.jpg"].filter(Boolean);
+  const photoSources = [PROFILE.photoUrl, PROFILE.photoFallbackUrl].filter(Boolean);
   const [sourceIndex, setSourceIndex] = useState(0);
   const [failed, setFailed] = useState(false);
   const currentSource = photoSources[sourceIndex];
@@ -65,7 +65,7 @@ export function ProfilePhoto() {
     setFailed(true);
   }
   if (failed || !currentSource) {
-    return <div className="flex aspect-[4/5] w-full items-center justify-center border border-dashed border-red-900/25 bg-red-50/50 px-6 text-center text-sm leading-6 text-slate-600">Add your photo as public/profile1.jpg to display it here.</div>;
+    return <div className="flex aspect-[4/5] w-full items-center justify-center border border-dashed border-red-900/25 bg-red-50/50 px-6 text-center text-sm leading-6 text-slate-600">Add the portrait as public/profile.jpg to display it here.</div>;
   }
   return <img src={currentSource} alt={`${PROFILE.name} portrait`} onError={handleImageError} className="h-full w-full object-cover object-[center_20%]" />;
 }

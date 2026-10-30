@@ -9,18 +9,20 @@ export function Navbar({ activePage, setActivePage }) {
   function openPage(pageId) {
     setMobileOpen(false);
     setActivePage(pageId);
+    window.history.replaceState({}, "", pageId === "home" ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}${pageId}`);
     window.setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 0);
   }
   function openHomeSection(event, sectionId) {
     event.preventDefault();
     setMobileOpen(false);
     setActivePage("home");
+    window.history.replaceState({}, "", `${import.meta.env.BASE_URL}#${sectionId}`);
     window.setTimeout(() => document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
   }
   return (
     <header className="sticky top-0 z-50 border-b border-red-800 bg-gradient-to-r from-red-950 via-red-900 to-red-950 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
-        <button aria-label="Home" type="button" onClick={() => openPage("home")} className="text-sm font-semibold tracking-wide text-red-50">{PROFILE.name}</button>
+        <button aria-label="Home" type="button" onClick={() => openPage("home")} className="text-sm font-semibold tracking-wide text-red-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{PROFILE.name}</button>
         <div className="hidden items-center gap-5 md:flex">
           {homeLinks.map((link) => <a key={link} href={`#${link.toLowerCase()}`} onClick={(event) => openHomeSection(event, link.toLowerCase())} className={cx("text-sm hover:text-white", activePage === "home" ? "text-red-100/85" : "text-red-100/60")}>{link}</a>)}
           {pageLinks.map((link) => <button key={link.id} type="button" onClick={() => openPage(link.id)} className={cx("text-sm hover:text-white", activePage === link.id ? "text-white underline underline-offset-4" : "text-red-100/70")}>{link.label}</button>)}
